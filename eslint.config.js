@@ -4,6 +4,19 @@ import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import reactThree from '@react-three/eslint-plugin'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+
+const loader = new GLTFLoader()
+const base = import.meta.env.BASE_URL // = "/portfolio/"
+
+loader.load(`${base}models/computer.glb`, (gltf) => {
+  scene.add(gltf.scene)
+})
+
+loader.load(`${base}models/hacker-room.glb`, (gltf) => {
+  scene.add(gltf.scene)
+})
+
 
 export default [
   { ignores: ['dist'] },
